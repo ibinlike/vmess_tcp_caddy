@@ -1,7 +1,5 @@
 #!/bin/bash
 
-sudo -i
-
 echo "Step 1: Install Haproxy 2.1"
 sudo apt-get install software-properties-common
 sudo add-apt-repository ppa:vbernat/haproxy-2.1
