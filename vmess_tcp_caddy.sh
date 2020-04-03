@@ -1,12 +1,15 @@
 #!/bin/bash
 
+sudo -i
+
 echo "Step 1: Install Haproxy 2.1"
-apt-get install software-properties-common
-add-apt-repository ppa:vbernat/haproxy-2.1
-apt update
-apt-get install haproxy=2.1.\*
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:vbernat/haproxy-2.1
+sudo apt update
+sudo apt-get install haproxy=2.1.\*
 echo "Pull haproxy configuration file and save it to /etc/haproxy/haproxy.cfg"
-wget 'haproxy.cfg' /etc/haproxy/haproxy.cfg
+wget 'https://raw.githubusercontent.com/ibinlike/vmess_tcp_caddy/master/haproxy.cfg'
+sudo cp 'haproxy.cfg' /etc/haproxy/haproxy.cfg
 
 echo 'Step 2: Install v2ray'
 bash <(curl -L -s https://install.direct/go.sh)
