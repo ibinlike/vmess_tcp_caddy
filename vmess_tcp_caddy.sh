@@ -35,7 +35,7 @@ sudo cp example.com /var/www/
 sudo chown -R www-data:www-data /var/www/example.com
 sudo chmod -R 555 /var/www/example.com
 
-wget 'https://github.com/ibinlike/vmess_tcp_caddy/blob/master/caddy.service'
+wget 'https://raw.githubusercontent.com/ibinlike/vmess_tcp_caddy/master/caddy.service'
 sudo cp caddy.service /etc/systemd/system/
 sudo chown root:root /etc/systemd/system/caddy.service
 sudo chmod 644 /etc/systemd/system/caddy.service
