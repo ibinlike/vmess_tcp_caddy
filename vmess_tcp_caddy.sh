@@ -11,7 +11,8 @@ sudo cp 'haproxy.cfg' /etc/haproxy/haproxy.cfg
 
 echo 'Step 2: Install v2ray'
 bash <(curl -L -s https://install.direct/go.sh)
-wget 'config.json' /etc/v2ray/config.json
+wget 'https://raw.githubusercontent.com/ibinlike/vmess_tcp_caddy/master/config.json' 
+sudo cp config.json /etc/v2ray/config.json
 
 echo 'Step 3: Install Caddy'
 curl https://getcaddy.com | bash -s personal
@@ -25,16 +26,16 @@ sudo chown -R root:root /etc/caddy
 sudo mkdir /etc/ssl/caddy
 sudo chown -R root:www-data /etc/ssl/caddy
 sudo chmod 0770 /etc/ssl/caddy
-wget 'caddyfile' 
+wget 'https://raw.githubusercontent.com/ibinlike/vmess_tcp_caddy/master/Caddyfile' 
 sudo cp caddyfile /etc/caddy/
 sudo chown root:root /etc/caddy/Caddyfile
 sudo chmod 644 /etc/caddy/Caddyfile
-wget 'exmple.com' 
+wget 'https://github.com/ibinlike/vmess_tcp_caddy/tree/master/example.com' 
 sudo cp example.com /var/www/
 sudo chown -R www-data:www-data /var/www/example.com
 sudo chmod -R 555 /var/www/example.com
 
-wget 'caddy.service'
+wget 'https://github.com/ibinlike/vmess_tcp_caddy/blob/master/caddy.service'
 sudo cp caddy.service /etc/systemd/system/
 sudo chown root:root /etc/systemd/system/caddy.service
 sudo chmod 644 /etc/systemd/system/caddy.service
@@ -48,10 +49,11 @@ echo 'Step 4: Install Caddy'
 cd /etc/ssl/privates
 apt-get install socat -y
 curl  https://get.acme.sh | sh
-cd /root/.amce.sh
+#cd /root/.amce.sh
 
-export CF_Key="刚刚保存下来的KEY"
-export CF_Email="cloudflare的注册邮箱"
-acme.sh --issue --dns dns_cf -d *.你的域名.com -d 你的域名.com --keylength ec-256
+#export CF_Key="刚刚保存下来的KEY"
+#export CF_Email="cloudflare的注册邮箱"
 
-cat ca.crt ca.key > example.com.pem
+#acme.sh --issue --dns dns_cf -d *.你的域名.com -d 你的域名.com --keylength ec-256
+
+#cat ca.crt ca.key > example.com.pem
