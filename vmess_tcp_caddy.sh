@@ -45,7 +45,7 @@ sudo systemctl start caddy.service
 sudo systemctl enable caddy.service
 journalctl --boot -u caddy.service
 
-echo 'Step 4: Install Caddy'
+echo 'Step 4: Install SSL certificates'
 cd /etc/ssl/privates
 apt-get install socat -y
 curl  https://get.acme.sh | sh
